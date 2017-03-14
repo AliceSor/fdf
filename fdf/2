@@ -1,0 +1,62 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   create.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asoroka <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/27 17:21:59 by asoroka           #+#    #+#             */
+/*   Updated: 2017/02/27 19:56:48 by asoroka          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "fdf.h"
+
+static int				key_hook(int kc, void *p)
+{
+	if (kc == 53)
+		exit(0);
+	return (0);
+}
+
+void			put_pixel(char *imdat, t_row *list)
+{
+	int			*idat;
+	int			i;
+	t_row		*row;
+
+	row = list;
+	idat = (int *)imdat;
+	while (row->next)
+	{
+write(1, "hi\n", 3); 	
+		while (row->point->next)
+		{
+write(1, "hi\n", 3);
+			if (row->point->color != 0)
+			{
+				i = row->point->x * (row->point->y + 2);
+				idat[i] = row->point->color;
+			}
+			row->point = row->point->next;
+		}
+		row = row->next;
+	}
+}
+
+void			create(t_row *list)
+{
+	int			bpss;
+	int			ls;
+	int			endian;
+	char		*imdat;
+
+	list->mlx = mlx_init();
+	list->win = mlx_new_window(list->mlx, 1000, 1000, "test");
+	list->im = mlx_new_image(list->mlx, 1000, 1000);
+	imdat = mlx_get_data_addr(list->im, &bpss, &ls, &endian);
+	mlx_put_image_to_window(list->mlx, list->win, list->im, 1, 1);
+	put_pixel(imdat, list);	
+	mlx_key_hook(list->win, key_hook, 0);
+	mlx_loop(list->mlx);
+}
