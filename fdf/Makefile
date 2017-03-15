@@ -6,7 +6,7 @@
 #    By: asoroka <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/25 18:13:07 by asoroka           #+#    #+#              #
-#    Updated: 2017/03/04 19:21:43 by asoroka          ###   ########.fr        #
+#    Updated: 2017/03/15 19:19:00 by asoroka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ SRC = main.c			\
 	  calculate.c 		\
 	  fill_down.c 		\
 	  zoom.c 			\
+	  print_map.c		\
+	  calc.c			\
 
 BINS = $(SRC:.c=.o)
 

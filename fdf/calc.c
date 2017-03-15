@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zoom.c                                             :+:      :+:    :+:   */
+/*   calc.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asoroka <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/12 16:55:03 by asoroka           #+#    #+#             */
-/*   Updated: 2017/03/15 17:14:57 by asoroka          ###   ########.fr       */
+/*   Created: 2017/03/15 19:08:49 by asoroka           #+#    #+#             */
+/*   Updated: 2017/03/15 19:30:41 by asoroka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void zoom(t_point *point, t_fdf *fdf)
+void			calc(t_point *p, t_fdf *fdf)
 {
-	if (fdf && point)
+	if (fdf && p)
 	{
-		point->x *= 20;
-		point->x += 400;
-		point->y *= 20;
-		point->y += 400;
-		point->z *= -20;
+		p->x_screen = p->x + p->z*0.5 * cos(1.099);
+		p->y_screen = p->y + p->z*0.5 * sin(1.099);
 	}
 }

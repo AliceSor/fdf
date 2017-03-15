@@ -6,7 +6,7 @@
 /*   By: asoroka <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 17:21:59 by asoroka           #+#    #+#             */
-/*   Updated: 2017/03/06 19:49:18 by asoroka          ###   ########.fr       */
+/*   Updated: 2017/03/15 19:22:04 by asoroka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void			create(t_fdf *fdf)
 {
 	int			bpss;
 	int			endian;
-	t_point		*p1;
-	t_point		*p2;
+	/* t_point		*p1; */
+	/* t_point		*p2; */
 	// char		*imdat;
 
 	void		*mlx;
@@ -39,13 +39,15 @@ void			create(t_fdf *fdf)
 
 	write(1, "11\n", 3);
 
-	p1 = new_point(500, 500);
-	p2 = new_point(0, 999);
-	p1->color = 0x0000FF;
-	p2->color = 0x0000FF;
-	put_line(fdf->imdat, fdf->ls, p1, p2);
+	/* p1 = new_point(500, 500); */
+	/* p2 = new_point(0, 999); */
+	/* p1->color = 0x0000FF; */
+	/* p2->color = 0x0000FF; */
+	/* put_line(fdf->imdat, fdf->ls, p1, p2); */
 
 	foreachpoint(fdf, zoom);
+	foreachpoint(fdf, print_map);
+	foreachpoint(fdf, calc);
 	foreachpoint(fdf, calculate);
 	write(1, "22\n", 3);
 	mlx_put_image_to_window(mlx, win, im, 0, 0);

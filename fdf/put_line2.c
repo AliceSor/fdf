@@ -25,10 +25,10 @@ void		put_line2(char *imdat, int ls, t_point *p1, t_point *p2)
 	double	derror;
 	int		t;
 
-	x1 = p1->x;
-	y1 = p1->y;
-	x2 = p2->x;
-	y2 = p2->y;
+	x1 = p1->x_screen;
+	y1 = p1->y_screen;
+	x2 = p2->x_screen;
+	y2 = p2->y_screen;
 	if (x1 > x2)
 	{
 		t = x1;

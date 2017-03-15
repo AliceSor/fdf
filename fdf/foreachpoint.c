@@ -6,7 +6,7 @@
 /*   By: asoroka <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/04 19:01:28 by asoroka           #+#    #+#             */
-/*   Updated: 2017/03/04 19:22:23 by asoroka          ###   ########.fr       */
+/*   Updated: 2017/03/15 16:42:31 by asoroka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void            foreachpoint(t_fdf *fdf, void (*f)(t_point *, t_fdf *))
     t_row       *row;
     t_point     *point;
     row = fdf->list->next;
-    write(1, "FEP_S\n", 6);
+    /* write(1, "FEP_S\n", 6); */
     while (row)
     {
         point = row->point->next;
-        while (point->next)
+        while (point)
         {
             if (point)
                 (*f)(point, fdf);
@@ -30,5 +30,5 @@ void            foreachpoint(t_fdf *fdf, void (*f)(t_point *, t_fdf *))
         }
         row = row->next;
     }
-    write(1, "FEP_E\n", 6);
+    /* write(1, "FEP_E\n", 6); */
 }

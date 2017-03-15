@@ -6,7 +6,7 @@
 /*   By: asoroka <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/25 17:53:12 by asoroka           #+#    #+#             */
-/*   Updated: 2017/03/06 19:49:20 by asoroka          ###   ########.fr       */
+/*   Updated: 2017/03/15 19:19:06 by asoroka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,6 @@ void					put_line1(char *imdat, int ls, t_point *p1, t_point *p2);
 void					put_line2(char *imdat, int ls, t_point *p1, t_point *p2);
 void					put_pixel(int *idat, int x, int y, int ls, int color);
 void 					zoom(t_point *point, t_fdf *fdf);
-
+void					print_map(t_point *point, t_fdf *fdf);
+void					calc(t_point *p, t_fdf *fdf);
 #endif

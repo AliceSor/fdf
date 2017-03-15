@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zoom.c                                             :+:      :+:    :+:   */
+/*   print_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asoroka <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/12 16:55:03 by asoroka           #+#    #+#             */
-/*   Updated: 2017/03/15 17:14:57 by asoroka          ###   ########.fr       */
+/*   Created: 2017/03/15 16:53:57 by asoroka           #+#    #+#             */
+/*   Updated: 2017/03/15 16:57:19 by asoroka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void zoom(t_point *point, t_fdf *fdf)
+void			print_map(t_point *point, t_fdf *fdf)
 {
 	if (fdf && point)
-	{
-		point->x *= 20;
-		point->x += 400;
-		point->y *= 20;
-		point->y += 400;
-		point->z *= -20;
-	}
+		printf("(%d, %d)\n", point->x, point->y);
 }
