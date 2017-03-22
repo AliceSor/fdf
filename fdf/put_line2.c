@@ -44,7 +44,7 @@ void		put_line2(char *imdat, int ls, t_point *p1, t_point *p2)
 	error = 2 * derror - 1;
 	while (x1 <= x2)
 	{
-		put_pixel((int *)imdat, round(x1), round(y1), ls, p1->color);
+		put_pixel((int *)imdat, round(x1), round(y1), ls, p2->color);
 		if (error > 0)
 		{
 			error += 2 * derror - 2;

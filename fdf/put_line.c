@@ -30,7 +30,7 @@ void		put_line(char *imdat, int ls, t_point *p1, t_point *p2)
 			x2 = p1->x_screen;
 		}
 		while (x1 <= x2)
-			put_pixel((int *)imdat, x1++, p1->y_screen, ls, p1->color);
+			put_pixel((int *)imdat, x1++, p1->y_screen, ls, p2->color);
 	}
 	else if(p1->x_screen == p2->x_screen)
 	{
@@ -42,7 +42,7 @@ void		put_line(char *imdat, int ls, t_point *p1, t_point *p2)
 			y2 = p1->y_screen;
 		}
 		while (y1 <= y2)
-			put_pixel((int *)imdat, p1->x_screen, y1++, ls, p1->color);
+			put_pixel((int *)imdat, p1->x_screen, y1++, ls, p2->color);
 	}
 	else if((p2->x_screen > p1->x_screen && p2->y_screen > p1->y_screen) || (p1->x_screen > p2->x_screen && p1->y_screen > p2->y_screen))
 		put_line1(imdat, ls, p1, p2);

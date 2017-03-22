@@ -17,9 +17,7 @@ void zoom(t_point *point, t_fdf *fdf)
 	if (fdf && point)
 	{
 		point->x *= 20;
-		point->x += 400;
 		point->y *= 20;
-		point->y += 400;
-		point->z *= -20;
+		point->z *= -10;
 	}
 }

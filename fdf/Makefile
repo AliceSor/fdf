@@ -31,6 +31,7 @@ SRC = main.c			\
 	  zoom.c 			\
 	  print_map.c		\
 	  calc.c			\
+	  rotation.c      \
 
 BINS = $(SRC:.c=.o)
 
@@ -38,7 +39,8 @@ all: $(NAME)
 
 $(NAME): $(BINS)
 		make -C libft/
-		gcc -o $(NAME) $(BINS) -L. libft/libft.a $(MLX) 
+		gcc -o $(NAME) $(BINS) -L. libft/libft.a $(MLX)
+		clean
 
 %.o: %.c $(HEADER)
 		gcc $(FLAGS) -o $@ $<

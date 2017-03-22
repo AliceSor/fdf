@@ -16,7 +16,7 @@ void			calc(t_point *p, t_fdf *fdf)
 {
 	if (fdf && p)
 	{
-		p->x_screen = p->x + p->z*0.5 * cos(1.099);
-		p->y_screen = p->y + p->z*0.5 * sin(1.099);
+		p->x_screen = p->x + p->z*0.5 * cos(AA * RAD) + 400;
+		p->y_screen = p->y + p->z*0.5 * sin(AA * RAD) + 200;
 	}
 }

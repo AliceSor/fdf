@@ -4,8 +4,7 @@
 */
 
 
-struct s_col_name mlx_col_name[] =
-{
+struct s_col_name mlx_col_name[] = {
  { "snow" , 0xfffafa },
  { "ghost white" , 0xf8f8ff },
  { "ghostwhite" , 0xf8f8ff },

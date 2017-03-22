@@ -36,7 +36,7 @@ t_row	*fill_down(t_row *first)
 
 	row = first;
 	row = row->next;
-	while (row->next)
+	while (row && row->next)
 	{
 		p = row->point->next;
 		while (p)

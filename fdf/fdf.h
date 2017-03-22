@@ -12,15 +12,20 @@
 
 #ifndef FDF_H
 # define FDF_H
-# define X row->point->x
-# define Y row->point->y
-# define Z row->point->z
-# define COLOR row->point->color
-# define NEXT row->point->next;
-# define DOWN row->point->down;
+# define X point->x
+# define Y point->y
+# define Z point->z
+# define COLOR point->color
+# define NEXT point->next
+# define DOWN point->down
+# define AA atan(2)
+# define RAD 3.14166667/180
+# define A fdf->alpha
+# define B fdf->beta
+# define G fdf->gamma
 
 # include "libft/libft.h"
-# include <mlx.h>
+# include "minilibx_macos/mlx.h"
 # include <fcntl.h>
 # include <math.h>
 ///////
@@ -53,6 +58,9 @@ typedef struct 			s_fdf
 	void				*im;
 	char				*imdat;
 	int					ls;
+	double				alpha;
+	double				beta;
+	double				gamma;
 	t_row				*list;
 }						t_fdf;
 
@@ -70,5 +78,7 @@ void					put_line2(char *imdat, int ls, t_point *p1, t_point *p2);
 void					put_pixel(int *idat, int x, int y, int ls, int color);
 void 					zoom(t_point *point, t_fdf *fdf);
 void					print_map(t_point *point, t_fdf *fdf);
-void					calc(t_point *p, t_fdf *fdf);
+void                 calc(t_point *p, t_fdf *fdf);
+void                 rotation(int keycode, t_fdf *fdf);
+void                 rotation_x(t_point *point, t_fdf *fdf);
 #endif

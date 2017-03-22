@@ -11,9 +11,7 @@
 /* ************************************************************************** */
 
 #include "fdf.h"
-#define X row->point->x
-#define Y row->point->y
-#define Z row->point->z
+
 static int				key_hook(int kc)
 {
 	if (kc == 53)
@@ -29,13 +27,10 @@ void			create(t_fdf *fdf)
 	/* t_point		*p2; */
 	// char		*imdat;
 
-	void		*mlx;
-	void		*im;
-	void		*win;
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 1000, 1000, "test");
-	im = mlx_new_image(mlx, 1000, 1000);
-	fdf->imdat = mlx_get_data_addr(im, &bpss, &fdf->ls, &endian);
+	fdf->mlx = mlx_init();
+	fdf->win = mlx_new_window(fdf->mlx, 1000, 1000, "test");
+	fdf->im = mlx_new_image(fdf->mlx, 1000, 1000);
+	fdf->imdat = mlx_get_data_addr(fdf->im, &bpss, &fdf->ls, &endian);
 
 	write(1, "11\n", 3);
 
@@ -49,9 +44,10 @@ void			create(t_fdf *fdf)
 	foreachpoint(fdf, print_map);
 	foreachpoint(fdf, calc);
 	foreachpoint(fdf, calculate);
-	write(1, "22\n", 3);
-	mlx_put_image_to_window(mlx, win, im, 0, 0);
-	write(1, "OK\n", 3);
-	mlx_key_hook(win, key_hook, 0);
-	mlx_loop(mlx);
+	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->im, 0, 0);
+
+	mlx_hook(fdf->win, 2, 5, rotation, fdf);
+
+	mlx_key_hook(fdf->win, key_hook, 0);
+	mlx_loop(fdf->mlx);
 }
