@@ -24,10 +24,12 @@ void            foreachpoint(t_fdf *fdf, void (*f)(t_point *, t_fdf *))
         point = row->point->next;
         while (point)
         {
+//            printf("(%d, %d) ", point->x, point->y);
             if (point)
                 (*f)(point, fdf);
             point = point->next;
         }
+        printf("\n");
         row = row->next;
     }
     /* write(1, "FEP_E\n", 6); */

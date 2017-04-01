@@ -37,7 +37,7 @@ static void		fill_row(t_row *row, char *line)
 				point->color = 16777215;
 			point->z = ft_atoi(l[x]);
 			if (point->z != 0)
-				point->color = 0xFF;
+				point->color = 0xFFFF;
 			add_point(first_point, point);
 		}
 }
@@ -69,12 +69,14 @@ int				main(int argc, char **argv)
 	int			fd;
 
 	fdf = (t_fdf *)malloc(sizeof(t_fdf) + 1);
-	fdf->alpha = 1.0;
-	fdf->beta = 1.0;
-	fdf->gamma = 1.0;
+	fdf->alpha = 0;
+	fdf->beta = 0;
+	fdf->gamma = 0;
 	fd = open(argv[1], O_RDONLY);
 	fdf->list = read_map(fd);
 	fdf->list = fill_down(fdf->list);
+    fdf->pos_x = 400;
+    fdf->pos_y = 400;
 	create(fdf);
 
 	if (argc != 2)

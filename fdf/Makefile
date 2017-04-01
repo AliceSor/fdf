@@ -6,7 +6,7 @@
 #    By: asoroka <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/25 18:13:07 by asoroka           #+#    #+#              #
-#    Updated: 2017/03/15 19:19:00 by asoroka          ###   ########.fr        #
+#    Updated: 2017/04/01 20:33:01 by asoroka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,6 @@ SRC = main.c			\
 	  lists.c			\
 	  create.c			\
 	  put_line.c		\
-	  put_line1.c 		\
-	  put_line2.c 		\
 	  put_pixel.c 		\
 	  foreachpoint.c 	\
 	  calculate.c 		\
@@ -32,6 +30,7 @@ SRC = main.c			\
 	  print_map.c		\
 	  calc.c			\
 	  rotation.c      \
+	  move.c          \
 
 BINS = $(SRC:.c=.o)
 

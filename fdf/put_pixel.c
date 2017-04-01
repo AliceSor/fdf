@@ -12,14 +12,14 @@
 
 #include "fdf.h"
 
-void		put_pixel(int *idat, int x, int y, int ls, int color)
+void		put_pixel(double x, double y, int *idat, int ls, int color)
 {
 	int			i;
 
 	// color = 16777215;
 	// printf("put_pixel[x %d, y %d, ls %d, idat %s]\n", x, y, ls, (char *)idat);
-	i = ls*(y)/4 + x;
+	i = (int) (ls * (y) / 4 + x);
 	// i *= 10;
-	if (i < 1000000 - 2)
+	if (i < 1000000 - 2 && i > 0)
 		idat[i] = color;
 }

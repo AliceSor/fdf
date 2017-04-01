@@ -14,48 +14,54 @@
 
 void        rotation(int keycode, t_fdf *fdf)
 {
-    int			bpss;
-    int			endian;
-
     if (fdf)
     {
+        if (keycode == 16)
+        {
+            B +=4;
+//            foreachpoint(fdf, rotation_y);
+        }
         if (keycode == 7)
         {
-            if (A > 45)
-            {
-                printf("\n\nHHH\n\n");
-                A = 0;
-                exit(0);
-            }
-            A++;
-            foreachpoint(fdf, rotation_x);
+            A += 4;
+//            foreachpoint(fdf, rotation_x);
         }
-        mlx_destroy_image (fdf->mlx, fdf->im);
-        fdf->im = mlx_new_image(fdf->mlx, 1000, 1000);
-        fdf->imdat = mlx_get_data_addr(fdf->im, &bpss, &fdf->ls, &endian);
-        foreachpoint(fdf, calc);
-        foreachpoint(fdf, calculate);
-        mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->im, 0, 0);
+        if (keycode == 6)
+        {
+            G += 4;
+            printf("G %f\n", G);
+//            if (G >= 180)
+//                G = 0;
+//            foreachpoint(fdf, rotation_z);
+        }
+        if (keycode == 0)
+        {
+            G -= 4;
+            printf("G %f\n", G);
+            if (G >= 45)
+                G = 0;
+//            foreachpoint(fdf, rotation_z);
+        }
+        put_im(fdf);
     }
 }
 
-void        rotation_x(t_point *point, t_fdf *fdf)
-{
-    if (fdf && point)
-    {
-//        printf("\n\nHHH\n\n");
-        Y = (int) (Y * cos(A * RAD) + Z * sin(B * RAD));
-        Z = (int) (-Y * sin(A * RAD) + Z * cos(B * RAD));
-    }
-}
-
+//void        rotation_x(t_point *point, t_fdf *fdf)
+//{
+//    if (fdf && point)
+//    {
+////        printf("\n\nHHH\n\n");
+//        point->y_r = Y * cos(A * RAD) + Z * sin(B * RAD);
+//        point->z_r = -Y * sin(A * RAD) + Z * cos(B * RAD);
+//    }
+//}
+//
 //void        rotation_y(t_point *point, t_fdf *fdf)
 //{
 //    if (fdf && point)
 //    {
-//        B++;
-//        X = X * cos(B * RAD) - Z * sin(B * RAD);
-//        Z = X * sin(B * RAD) + Z * cos(B * RAD);
+//        point->x_r = X * cos(B * RAD) - Z * sin(B * RAD);
+//        point->z_r = X * sin(B * RAD) + Z * cos(B * RAD);
 //    }
 //}
 //
@@ -63,8 +69,31 @@ void        rotation_x(t_point *point, t_fdf *fdf)
 //{
 //    if (fdf && point)
 //    {
-//        G++;
-//        X = X * cos(G * RAD) + Y * sin(G * RAD);
-//        Y = -X * sin(G * RAD) + Y * cos(G * RAD);
+//        point->x_r = X * cos(G * RAD) + Y * sin(G * RAD);
+//        point->y_r = -X * sin(G * RAD) + Y * cos(G * RAD);
+//    }
+//}
+
+void        put_im(t_fdf *fdf)
+{
+    int			bpss;
+    int			endian;
+
+    mlx_destroy_image (fdf->mlx, fdf->im);
+    fdf->im = mlx_new_image(fdf->mlx, 1000, 1000);
+    fdf->imdat = (int *)mlx_get_data_addr(fdf->im, &bpss, &fdf->ls, &endian);
+    foreachpoint(fdf, calc);
+    foreachpoint(fdf, calculate);
+    mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->im, 0, 0);
+}
+
+//void        overturn(t_point *point, t_fdf *fdf)
+//{
+//    if (fdf && point)
+//    {
+//        if (A > 45)
+//        {
+//            Z = -Z;
+//        }
 //    }
 //}

@@ -16,7 +16,8 @@ set(SOURCE_FILES main.c
         zoom.c
         print_map.c
         rotation.c
-        calc.c)
-
+        calc.c
+#        move.c)
+        )
 add_executable(fdf ${SOURCE_FILES})
 target_link_libraries(fdf ${CMAKE_SOURCE_DIR}/libft/libft.a)

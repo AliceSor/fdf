@@ -46,14 +46,8 @@ CMakeFiles/fdf.dir/put_line.c.o: ../libft/libft.h
 CMakeFiles/fdf.dir/put_line.c.o: ../minilibx_macos/mlx.h
 CMakeFiles/fdf.dir/put_line.c.o: ../put_line.c
 
-CMakeFiles/fdf.dir/put_line1.c.o: ../fdf.h
-CMakeFiles/fdf.dir/put_line1.c.o: ../libft/libft.h
-CMakeFiles/fdf.dir/put_line1.c.o: ../minilibx_macos/mlx.h
 CMakeFiles/fdf.dir/put_line1.c.o: ../put_line1.c
 
-CMakeFiles/fdf.dir/put_line2.c.o: ../fdf.h
-CMakeFiles/fdf.dir/put_line2.c.o: ../libft/libft.h
-CMakeFiles/fdf.dir/put_line2.c.o: ../minilibx_macos/mlx.h
 CMakeFiles/fdf.dir/put_line2.c.o: ../put_line2.c
 
 CMakeFiles/fdf.dir/put_pixel.c.o: ../fdf.h
