@@ -1,6 +1,6 @@
 # Fdf
 
-program for vizualise heightmap, using minilibx
+program for vizualize heightmap, using minilibx
 
 ## Screenchots
 
